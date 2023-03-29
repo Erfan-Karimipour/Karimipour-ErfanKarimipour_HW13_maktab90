@@ -15,6 +15,8 @@ const clearHistor=document.querySelector(`.ClearHistory`);
 const todayImg=document.getElementById(`todayImg`);
 const Theme=document.querySelector(`.Theme`);
 
+let angerLevel=0;
+
 let currentUser=JSON.parse( localStorage.getItem(`CurrentUser`) );
 
 let OldSearches=JSON.parse(localStorage.getItem(`Old Searches`))||[];
@@ -28,6 +30,26 @@ function LoggedOut(){
 if (localStorage.getItem(`LoggedIn`)==`False`||!localStorage.getItem(`LoggedIn`)){
 
   window.open(`../Login page/Index.html`,`_self`);
+
+}
+
+function AngryApp(angerLevel){
+
+  if(angerLevel==1){
+    alert(`Please type currectly 😊`)
+  }
+
+  else if(angerLevel==2){
+    alert(`Type currectly 😤`)
+  }
+
+  else if(angerLevel==3){
+    alert(`This is your last warning you freaking idiot! 😡🤬`)
+  }
+
+  if(angerLevel>2){
+    window.open(`../Login page/Index.html`,`_self`);
+  }
 
 }
 
@@ -45,7 +67,7 @@ function Fetcher(searcher) {
 
     console.log(`im eating shit`);
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ searcher}&appid=7efd43c8b96dfb3440b8b889283f96f5`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searcher}&appid=7efd43c8b96dfb3440b8b889283f96f5`)
     .then(res => res.json()).then((data) => {
         lat=data[0].lat ; lon=data[0].lon;
         return (fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7efd43c8b96dfb3440b8b889283f96f5`))
@@ -90,6 +112,14 @@ function Fetcher(searcher) {
 
         console.log(weatherToday.weather[0].main);
 
+
+
+
+
+    }).catch(()=>{
+              angerLevel+=1;
+              console.log(angerLevel);
+              AngryApp(angerLevel);
     })
 }
 
