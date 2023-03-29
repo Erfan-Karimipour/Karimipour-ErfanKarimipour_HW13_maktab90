@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login-body-bg{
+    background-image: url(../Images/Dark-Sky-at-Sand-dunes.jpg);
+background-size: cover;
+}
+
+.main-bg{
+    background-image: url(../Images/Dark-Sky-at-Sand-dunes.jpg);
+    background-size: cover;
+}
+
+.p-logout{
+    padding: 8px 14px 12px 6px;
+    border-radius: 0 0 15px 0;
+    max-width: 8rem;
+}
+
+.weather-wh{
+    width: 40rem;
+    height: 35rem;
+}
+
+.sectionLeft-bg{
+    height: 27rem;
+}
+
+.h-register{
+    height: 29rem;
+}

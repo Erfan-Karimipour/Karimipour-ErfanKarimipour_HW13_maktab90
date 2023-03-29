@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everos Weathers | Search</title>
+    <link href="../../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Style.css">
+    <link rel="stylesheet" href="Media.css">
+</head>
+<body class="main-bg">
+    <script src="LoggedIn.js"></script>
+
+    <header class="flex justify-between">
+
+        <div class="flex">
+
+        <form action="../Login page/Index.html" onclick="LoggedOut()" class="cursor-pointer text-gray-200 p-logout bg-gray-700 hover:text-red-600 hover:border-red-600 border-2 border-gray-500 mr-30 box-border dark:bg-gray-50 dark:text-gray-600 dark:border-gray-600 dark:hover:text-blue-600 dark:hover:border-blue-600">
+        <button type="submit"> <ion-icon name="log-out-outline" class="align-middle text-xl"></ion-icon><span id="logoutName" class="align-middle ml-1"></span></button>
+        </form>
+
+        <div class="dark:bg-gray-200 border-2 bg-gray-700 border-gray-500 dark:border-gray-600 drop-shadow-xl rounded-br-2xl w-2/7 h-9 text-white dark:text-black">
+            <ion-icon name="search-outline" class="text-2xl align-middle p-1"></ion-icon><input type="search" placeholder="Name a city" class="searcher text-white dark:text-black dark:bg-gray-200 bg-gray-700 text-md align-middle outline-none w-10/12">
+        </div>
+
+        <div class="hidden bg-gray-400 pt-1 rounded-b-xl border-2 border-gray-700 absolute max-w-min text-center top-9 left-28" id="suggestionBar">
+               <button class="text-sm text-red-600 ClearHistory">Clear history</button>
+        </div>
+
+    </div>
+
+        <ion-icon name="moon" class="Theme dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black bg-white rounded-full text-xl hover:text-white hover:bg-black cursor-pointer duration-200 m-2 ml-20 box-border"></ion-icon>
+
+    </header>
+
+    <main class="flex w-full h-full justify-center">
+
+        <div class="hidden Form shadow-2xl bg-opacity-60 dark:bg-opacity-60 weather-wh bg-gray-900 dark:bg-blue-600 mt-20 flex rounded-3xl border-2 border-gray-700 dark:border-blue-900">
+
+            <section class="w-1/2 m-3 ">
+
+                <div class="h-1/6 w-full overflow-scroll bg-opacity-90 dark:bg-opacity-90 dark:border-2 bg-gray-300 dark:bg-blue-800 dark:text-gray-200 rounded-3xl flex p-3 justify-center text-gray-800">
+
+                    <span id="cityName" class="text-6xl ">Tehran</span>
+
+                    <span id="countryName" class="mt-8 text-lg">Iran</span>
+
+                </div>
+
+                <div class="bg-opacity-90 dark:bg-opacity-90 bg-gray-800 dark:bg-gray-200 w-full sectionLeft-bg mt-3 rounded-3xl dark:border-gray-600 border-2 border-gray-300 flex flex-wrap justify-between">
+
+                    <p class="w-full text-center text-lg dark:text-gray-900 text-gray-300 mt-3">Today</p>
+
+                    <img src="https://img.icons8.com/color/48/null/sun-star.png" alt='alt' id='todayImg' class=' w-36 h-36 m-auto mt-0 rounded-3xl'/>
+
+                    <span class="text-3xl ml-10 text-gray-300 dark:text-gray-900 w-full" id="weatherStatus">Partly Cloudy</span>
+
+                    <span class="text-5xl ml-10 text-gray-300 dark:text-gray-900 w-full" id="weatherTemp">34°</span>
+
+                    <span class="dayandnight text-xl text-center text-gray-300 dark:text-gray-900 m-10 mr-0 mt-6 flex" >Day <span id="weatherTempDay">  42°</span></span>
+                    
+                    <span class="dayandnight night text-xl text-center text-gray-300 dark:text-gray-900 m-10 ml-0 mt-6 flex">Night  <span id="weatherTempNight">    16°</span> </span>
+
+                </div>
+
+            </section>
+
+            <section class="bg-opacity-90 dark:bg-opacity-90 w-1/2 m-3 ml-0 dark:bg-gray-200 bg-gray-800 rounded-3xl border-2 dark:border-gray-600 border-gray-300">
+                
+                <div class="border-b-2 border-gray-400 mx-4">
+
+                    <p class="w-full text-center text-lg dark:text-gray-900 text-gray-300 mt-2 mb-1">Next Day</p>
+
+                    <div class="flex justify-evenly text-2xl dark:text-gray-900 text-gray-300 mb-2">
+
+                        <img src="../../Images/Dark-Sky-at-Sand-dunes.jpg" alt="tomorrowImg" class="w-32 h-32 FutureInfo rounded-xl ">
+
+                        <p class="mt-8"><span id="oneDayStatus">Cloudy</span><br><span id="oneDayTemp">92°</span></p>
+
+                    </div>
+
+                </div>
+
+                <div class="border-b-2 border-gray-400 mx-4">
+
+                    <p class="w-full text-center text-lg dark:text-gray-900 text-gray-300 mt-2 mb-1">Next Day</p>
+
+                    <div class="flex justify-evenly text-2xl dark:text-gray-900 text-gray-300 mb-2">
+
+                        <img src="../../Images/Dark-Sky-at-Sand-dunes.jpg" alt="tomorrowImg" class="w-32 h-32 FutureInfo rounded-xl ">
+
+                        <p class="mt-8"><span id="oneDayStatus">Cloudy</span><br><span id="oneDayTemp">92°</span></p>
+
+                    </div>
+
+                </div>
+
+                <div class="mx-4">
+
+                    <p class="w-full text-center text-lg dark:text-gray-900 text-gray-300 mt-2 mb-1">Next Day</p>
+
+                    <div class="flex justify-evenly text-2xl dark:text-gray-900 text-gray-300 mb-2">
+
+                        <img src="../../Images/Dark-Sky-at-Sand-dunes.jpg" alt="tomorrowImg" class="w-32 h-32 FutureInfo rounded-xl ">
+
+                        <p class="mt-8"><span id="oneDayStatus">Cloudy</span><br><span id="oneDayTemp">92°</span></p>
+
+                    </div>
+
+                </div>
+
+                
+
+            </section>
+
+        </div>
+
+    </main>
+
+<div class="m-2 mx-24"></div>
+
+<div class="pointer-events-none hidden">
+    <a target="_blank" href="https://icons8.com/icon/O96jdn3rUsve/windy-weather">Windy Weather</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    <a target="_blank" href="https://icons8.com/icon/LSiA0D7qJ1zr/sun">Sun</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    <a target="_blank" href="https://icons8.com/icon/iLpjwANFLM5s/snow">Snow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    <a target="_blank" href="https://icons8.com/icon/8cDNraQqdlD2/rain">Rain</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    <a target="_blank" href="https://icons8.com/icon/62039/sun-star">Sun Star icon by Icons8</a>
+</div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/8df801706d.js" crossorigin="anonymous"></script>
+    <script src="Script.js"></script>
+  
+</body>
+</html>
